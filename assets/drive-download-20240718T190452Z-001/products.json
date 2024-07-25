@@ -1,0 +1,282 @@
+[
+  {
+    "name": "Đá xay Matcha",
+    "price": 60000,
+    "image": "matcha-da-xay-compress-20231208031242.png",
+    "rating": 5,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Thức uống mát lạnh kết hợp giữa matcha thơm ngon và đá xay, mang đến hương vị thanh mát và sảng khoái."
+  },
+  {
+    "name": "Hồng Trà Sữa",
+    "price": 45000,
+    "image": "65000082-65000099-hong-tra-sua_30c9a4d2-957e-4152-b377-33b68f4da0c5-og.png",
+    "rating": 4.5,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Hồng trà đậm đà hòa quyện cùng sữa tươi, tạo nên một ly trà sữa thơm ngon và béo ngậy."
+  },
+  {
+    "name": "Chanh Đá Xay",
+    "price": 50000,
+    "image": "65000070-sinh-to-chanh_f87c3f0f-c707-40d6-aa16-2b5fa3a90400-og.png",
+    "rating": 4.8,
+    "categoryId": {
+      "$oid": "66968e00645a7ed8a429bccd"
+    },
+    "description":"Nước chanh tươi mát kết hợp với đá xay, mang đến cảm giác sảng khoái và giải nhiệt tức thì."
+  },
+  {
+    "name": "Trà Sữa Phúc Long",
+    "price": 45000,
+    "image": "65000094-65000102-tra-sua-phuc-long-_3682b729-4ffc-4956-abb3-7026070663c2-og.png",
+    "rating": 5,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Trà sữa đặc trưng của Phúc Long, với hương vị trà đậm đà và sữa ngọt ngào, phù hợp cho mọi lứa tuổi."
+  },
+  {
+    "name": "Trà Sữa Ô Long",
+    "price": 45000,
+    "image": "65000087-65000101-tra-o-long-sua_b2aa9ed3-4cc8-43e2-932b-802878bf314d-og.png",
+    "rating": 3,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Trà ô long thơm ngon kết hợp với sữa tươi, tạo nên một ly trà sữa thanh mát và bổ dưỡng."
+  },
+  {
+    "name": "Cà Phê Sữa Đá",
+    "price": 35000,
+    "image": "dmcap082-dmcap084-phin-sua-da_3795a527-1b5b-4aaa-9d92-0d82385e4406-og.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "669664ad709ae872ab6e9426"
+    },
+    "description":"Cà phê đậm đà pha cùng sữa đặc ngọt ngào và đá lạnh, mang đến hương vị truyền thống của Việt Nam."
+  },
+  {
+    "name": "Hồng Trà Chanh",
+    "price": 40000,
+    "image": "65000080-65000105-hong-tra-chanh_31c2d07e-8817-4a3d-9418-ba416e973e2a-og.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Hồng trà kết hợp với chanh tươi, tạo nên một ly trà thanh mát và giải khát."
+  },
+  {
+    "name": "Trà Sữa Socola",
+    "price": 45000,
+    "image": "65000011-tra-sua-socola-20230407020111.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Trà sữa kết hợp với hương vị socola ngọt ngào, mang đến trải nghiệm mới lạ và hấp dẫn."
+  },
+  {
+    "name": "Hồng Trà Đào",
+    "price": 50000,
+    "image": "65000085-65000100-tra-dao-phuc-long_b57f8c46-3096-42be-b8bc-84185ea3ec02-og.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Hồng trà thơm ngon kết hợp với hương vị đào tươi mát, tạo nên một ly trà thanh mát và ngọt ngào."
+  },
+  {
+    "name": "Sữa Chua Phúc Bồn Tử Đác Cam",
+    "price": 70000,
+    "image": "65000072-sua-chua-phuc-bon-tu-dac-cam-phuc-long_23955f73-a6c0-4cca-b79c-b6342df26caf-og.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "66968e00645a7ed8a429bccd"
+    },
+    "description":"Sữa chua kết hợp với phúc bồn tử và đác cam, mang đến hương vị chua ngọt và tươi mát."
+  },
+  {
+    "name": "Trà Sữa Matcha",
+    "price": 45000,
+    "image": "tra-sua-matcha-compress-20231208031011.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Trà sữa kết hợp với matcha thơm ngon, tạo nên một ly trà sữa thanh mát và bổ dưỡng."
+  },
+  {
+    "name": "Trà Ô Long Dâu",
+    "price": 50000,
+    "image": "65000089-65000107-tra-o-long-dau_67b27b94-3f8c-46b1-b904-030fc1fbb292-og.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Trà ô long kết hợp với hương vị dâu tươi, mang đến hương vị thanh mát và ngọt ngào."
+  },
+  {
+    "name": "Cappuccino Đá Xay",
+    "price": 60000,
+    "image": "65000003-ca-phe-cappuccino-da-xay_47179b90-3960-4478-84c4-1f74b3fa1248-og.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "669664ad709ae872ab6e9426"
+    },
+    "description":"Cà phê cappuccino kết hợp với đá xay, tạo nên một ly cà phê mát lạnh và thơm ngon."
+  },
+  {
+    "name": "Cà Phê Đen Đá",
+    "price": 30000,
+    "image": "dmcap081-dmcap083-phin-den-da_d852660d-1e23-46bd-a1af-117247dc77f0-og.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "669664ad709ae872ab6e9426"
+    },
+    "description":"Cà phê đen đậm đà kết hợp với đá lạnh, mang đến hương vị cà phê nguyên chất và sảng khoái."
+  },
+  {
+    "name": "Sữa Chua Xoài Đác Thơm",
+    "price": 70000,
+    "image": "65000073-sua-chua-xoai-dac-thom-phuc-long_26595644-4b5d-4d95-a3ff-d0ccf06d6f1f-og.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "66968e00645a7ed8a429bccd"
+    },
+    "description":"Sữa chua kết hợp với xoài và đác thơm, mang đến hương vị chua ngọt và tươi mát."
+  },
+  {
+    "name": "Hồng Trà Đào Sữa Thạch Konjac",
+    "price": 50000,
+    "image": "65000086-65000103-tra-dao-sua_e1d1ff51-2c3f-4870-a3d5-9a1388c4d63f-og.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Hồng trà kết hợp với đào, sữa và thạch konjac, tạo nên một ly trà sữa thơm ngon và bổ dưỡng."
+  },
+  {
+    "name": "Trà Vải Lài",
+    "price": 50000,
+    "image": "65000113-65000114-tra-vai-lai_319efb36-fcbf-45d9-8ad9-cb2ae2f7a90f-og.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Trà vải kết hợp với hương lài, mang đến hương vị thanh mát và ngọt ngào."
+  },
+  {
+    "name": "Trà Lucky Tea",
+    "price": 50000,
+    "image": "lucky-tea-20240104020604.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Trà đặc biệt với hương vị độc đáo, mang đến trải nghiệm mới lạ và hấp dẫn."
+  },
+  {
+    "name": "Trà Nhãn Sen",
+    "price": 50000,
+    "image": "65000125-tra-nhan-sen-20230413023131.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Trà nhãn kết hợp với hương sen, tạo nên một ly trà thanh mát và thơm ngon."
+  },
+  {
+    "name": "Trà Lài Đác Thơm",
+    "price": 50000,
+    "image": "65000133-65000134-tra-lai-dac-thom_72db1c57-d4b1-4889-95bf-840fea1341b6-og.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Trà lài kết hợp với đác thơm, mang đến hương vị thanh mát và ngọt ngào."
+  },
+  {
+    "name": "Hồng Trà Đác Cam Đá Xay",
+    "price": 70000,
+    "image": "65000135-hong-tra-dac-cam_7659ba61-7640-45fe-b899-3c882cf7b64f-og.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Hồng trà kết hợp với đác cam và đá xay, tạo nên một ly trà mát lạnh và thơm ngon."
+  },
+  {
+    "name": "Cà phê Latte",
+    "price": 45000,
+    "image": "dmcap089-dmcap090-latte-latte_05488e79-cc32-4828-a5a3-3171f13ac845-og.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "669664ad709ae872ab6e9426"
+    },
+    "description":"Cà phê latte với hương vị cà phê đậm đà và sữa tươi, mang đến trải nghiệm cà phê thơm ngon và béo ngậy."
+  },
+  {
+    "name": "Cà phê Cappuccino",
+    "price": 45000,
+    "image": "dmcap093-dmcap094-cappuccino-vietnamo_55905766-ff9f-435b-aa3b-e14018c188a3-og.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "669664ad709ae872ab6e9426"
+    },
+    "description":"Phiên bản nhỏ hơn của cà phê cappuccino, vẫn giữ nguyên hương vị đậm đà và thơm ngon."
+  },
+  {
+    "name": "Trà Sữa Lài",
+    "price": 45000,
+    "image": "65000094-65000102-tra-sua-phuc-long--20230406103801.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Trà sữa kết hợp với hương lài, mang đến hương vị thanh mát và ngọt ngào."
+  },
+  {
+    "name": "Trà Sữa Nhãn Sen",
+    "price": 50000,
+    "image": "65000307-tra-sua-nhan-sen-20230413021641.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Trà sữa kết hợp với nhãn và hương sen, tạo nên một ly trà sữa thơm ngon và bổ dưỡng."
+  },
+  {
+    "name": "Trà Sữa Ô Long Quế Hoa",
+    "price": 50000,
+    "image": "single1-copy-2-1--20230921061658.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Trà ô long kết hợp với hương quế hoa, mang đến hương vị thanh mát và ngọt ngào."
+  },
+  {
+    "name": "Trà Silky Ô Long Quế Hoa",
+    "price": 50000,
+    "image": "single4-copy-2-1--20230921062302.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Phiên bản đặc biệt của trà ô long quế hoa, với hương vị mượt mà và thơm ngon."
+  },
+  {
+    "name": "Trà Phúc Long Kem Silky",
+    "price": 45000,
+    "image": "silky-1--20240104031840.png",
+    "rating": 0,
+    "categoryId": {
+      "$oid": "6696649d709ae872ab6e9425"
+    },
+    "description":"Trà Phúc Long kết hợp với kem silky, mang đến hương vị trà sữa thơm ngon và béo ngậy."
+  }
+]

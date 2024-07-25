@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "6696649d709ae872ab6e9425"
+  },
+  "name": "Trà",
+  "image":"cate_tea.png"
+},
+{
+  "_id": {
+    "$oid": "669664ad709ae872ab6e9426"
+  },
+  "name": "Cà phê",
+  "image":"cate_coffee.png"
+},
+{
+  "_id": {
+    "$oid": "66968e00645a7ed8a429bccd"
+  },
+  "name": "Khác",
+  "image":"cate_other.png"
+}]
