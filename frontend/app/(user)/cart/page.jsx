@@ -2,7 +2,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import ProductList from "../components/productList";
 import { removeCart, removeItem, updateItem } from "@/redux/slices/cartSlice";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Cart() {
   // const cart = [
@@ -29,13 +30,18 @@ export default function Cart() {
     (total, item) => total + item.price * item.quantity,
     0
   );
+  const router = useRouter();
   const [fullname, setFullname] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const closeBtn = useRef();
   const submit = (e) => {
-    e.preventDafault();
+    e.preventDefault();
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders`, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         user: {
           fullname,
@@ -45,6 +51,11 @@ export default function Cart() {
         detail: cart,
         total_money: total,
       }),
+    }).then((res) => {
+      alert("Đặt hàng thành công!");
+      dispatch(removeCart());
+      closeBtn.current.click();
+      router.push("/");
     });
   };
   return (
@@ -156,6 +167,7 @@ export default function Cart() {
                   className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
+                  ref={closeBtn}
                 ></button>
               </div>
               <div className="modal-body">

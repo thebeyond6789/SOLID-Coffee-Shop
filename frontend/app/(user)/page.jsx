@@ -36,7 +36,6 @@ export default function Home() {
                 width={48}
                 height={48}
               />
-              <br />
               {item.name}
             </Link>
           );
