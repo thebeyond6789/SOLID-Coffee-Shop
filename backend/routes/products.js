@@ -10,7 +10,19 @@ router.get("/", async (req, res, next) => {
   const db = await connectDb();
   const productCollection = db.collection("products");
   const products = await productCollection.find().toArray();
+
+  const categoryCollection = db.collection("categories");
+  const categories = await categoryCollection.find().toArray();
+
   if (products) {
+    products.map((item) => {
+      category = categories.find(
+        (cate) => cate._id.toString() == item.categoryId.toString()
+      );
+      item.category = category;
+      return item;
+    });
+    console.log(products);
     res.status(200).json(products);
   } else {
     res.status(404).json({ message: "Không tìm thấy" });
