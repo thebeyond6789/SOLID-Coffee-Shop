@@ -1,4 +1,17 @@
+"use client";
+import useSWR from "swr";
+
 export default function Product() {
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const {
+    data: productList,
+    error: errorProduct,
+    isLoading: isLoadingProduct,
+  } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/products`, fetcher);
+
+  if (errorProduct) return <strong>Có lỗi xảy ra ...</strong>;
+  if (isLoadingProduct) return <strong>Đang tải dữ liệu ...</strong>;
+
   return (
     <>
       <div className="d-flex justify-content-between">
@@ -65,60 +78,61 @@ export default function Product() {
                   Product
                 </th>
                 <th>Price</th>
-                <th>Instock</th>
                 <th>Rating</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody className="align-middle">
-              <tr>
-                <td style={{ width: 64 + "px" }}>
-                  <img
-                    src="assets/img/products/iphone.webp"
-                    className="w-100"
-                  />
-                </td>
-                <td className="text-start">
-                  <strong>iPhone 15 Pro Max 256GB Gold Rose</strong>
-                  <br />
-                  <small>
-                    Id: <strong>1</strong> | Category:{" "}
-                    <a href="#" className="text-decoration-none fw-bold">
-                      Điện thoại
-                    </a>
-                  </small>
-                </td>
-                <td c>
-                  24,000,000đ
-                  <br />
-                  <del>25,000,000đ</del>
-                </td>
-                <td>50</td>
-                <td>
-                  4.6
-                  <br />
-                  <i className="fas fa-star fa-xs text-warning"></i>
-                  <i className="fas fa-star fa-xs text-warning"></i>
-                  <i className="fas fa-star fa-xs text-warning"></i>
-                  <i className="fas fa-star fa-xs text-warning"></i>
-                  <i className="far fa-star fa-xs text-warning"></i>
-                </td>
-                <td>
-                  <a
-                    href="#"
-                    target="_blank"
-                    className="btn btn-primary btn-sm"
-                  >
-                    <i className="fas fa-eye fa-fw"></i>
-                  </a>
-                  <a href="#" className="btn btn-outline-warning btn-sm">
-                    <i className="fas fa-pencil fa-fw"></i>
-                  </a>
-                  <a href="#" className="btn btn-outline-danger btn-sm">
-                    <i className="fas fa-times fa-fw"></i>
-                  </a>
-                </td>
-              </tr>
+              {productList.map((item) => {
+                return (
+                  <tr key={item._id}>
+                    <td style={{ width: 64 + "px" }}>
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${item.image}`}
+                        className="w-100"
+                      />
+                    </td>
+                    <td className="text-start">
+                      <strong>{item.name}</strong>
+                      <br />
+                      <small>
+                        Id: <strong>{item._id}</strong> | Category:{" "}
+                        <a href="#" className="text-decoration-none fw-bold">
+                          Điện thoại
+                        </a>
+                      </small>
+                    </td>
+                    <td c>{item.price.toLocaleString()}đ</td>
+                    <td>
+                      {item.rating}
+                      <br />
+                      <div className="text-warning">
+                        {[...Array(Math.floor(item.rating))].map((i) => {
+                          return <i class="fas fa-star fa-xs"></i>;
+                        })}
+                        {[...Array(5 - Math.floor(item.rating))].map((i) => {
+                          return <i class="far fa-star fa-xs"></i>;
+                        })}
+                      </div>
+                    </td>
+                    <td>
+                      <a
+                        href="#"
+                        target="_blank"
+                        className="btn btn-primary btn-sm"
+                      >
+                        <i className="fas fa-eye fa-fw"></i>
+                      </a>
+                      <a href="#" className="btn btn-outline-warning btn-sm">
+                        <i className="fas fa-pencil fa-fw"></i>
+                      </a>
+                      <a href="#" className="btn btn-outline-danger btn-sm">
+                        <i className="fas fa-times fa-fw"></i>
+                      </a>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
