@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import useSWR from "swr";
 
 export default function Product() {
@@ -20,9 +21,9 @@ export default function Product() {
           <a href="#" className="btn btn-outline-success rounded-0">
             Manage Categories
           </a>
-          <a href="product_add.html" className="btn btn-primary rounded-0">
+          <Link href="/admin/product/add" className="btn btn-primary rounded-0">
             Add Product
-          </a>
+          </Link>
         </div>
       </div>
       <div className="row">
@@ -98,7 +99,7 @@ export default function Product() {
                       <small>
                         Id: <strong>{item._id}</strong> | Category:{" "}
                         <a href="#" className="text-decoration-none fw-bold">
-                          Điện thoại
+                          {item.category.name}
                         </a>
                       </small>
                     </td>
