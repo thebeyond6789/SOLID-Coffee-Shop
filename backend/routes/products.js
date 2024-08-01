@@ -5,6 +5,30 @@ var router = express.Router();
 const connectDb = require("../models/db");
 const { ObjectId } = require("mongodb");
 
+const multer = require("multer");
+let storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, "./public/images");
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.originalname);
+  },
+});
+
+function checkFileUpload(req, file, callback) {
+  if (!file.originalname.match(/\.(jpg|jpeg|png|gif|webp)$/)) {
+    return callback(new Error("Định dạng file không hợp lệ!"));
+  } else {
+    callback(null, true);
+  }
+}
+
+let upload = multer({
+  storage: storage,
+  fileFilter: checkFileUpload,
+  limits: { fileSize: 50 * 1024 * 1024 }, // byte
+});
+
 //Lấy tất cả sản phẩm dạng json
 router.get("/", async (req, res, next) => {
   const db = await connectDb();
@@ -75,6 +99,26 @@ router.get("/topRating", async (req, res, next) => {
     .toArray();
   if (products) {
     res.status(200).json(products);
+  } else {
+    res.status(404).json({ message: "Không tìm thấy" });
+  }
+});
+
+router.post("/", upload.single("image"), async (req, res, next) => {
+  const db = await connectDb();
+  const productCollection = db.collection("products");
+  const newProduct = {
+    _id: null,
+    name: req.body.name,
+    description: req.body.description,
+    categoryId: new ObjectId(req.body.categoryId),
+    price: req.body.price,
+    image: req.file.originalname,
+    rating: 0,
+  };
+  const product = await productCollection.insertOne(newProduct);
+  if (product.insertedId) {
+    res.status(200).json({ message: "Thêm sản phẩm thành công!" });
   } else {
     res.status(404).json({ message: "Không tìm thấy" });
   }

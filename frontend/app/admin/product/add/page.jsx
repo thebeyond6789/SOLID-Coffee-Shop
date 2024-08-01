@@ -1,5 +1,6 @@
 "use client";
 import { useFormik } from "formik";
+import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import useSWR from "swr";
 
@@ -11,6 +12,7 @@ export default function ProductAdd() {
     isLoading: isLoadingCategory,
   } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/categories`, fetcher);
 
+  const router = useRouter();
   const [formValue, setFormValue] = useState();
   const formik = useFormik({
     initialValues: {
@@ -24,10 +26,18 @@ export default function ProductAdd() {
       setFormValue(value);
       const formData = new FormData();
       formData.append("name", value.name);
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`, {
-        method: "POST",
-        body: formData,
-      });
+      formData.append("description", value.description);
+      formData.append("categoryId", value.categoryId);
+      formData.append("price", value.price);
+      formData.append("image", value.image);
+      try {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`, {
+          method: "POST",
+          body: formData,
+        }).then((res) => {});
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
 
@@ -93,6 +103,7 @@ export default function ProductAdd() {
                       name="categoryId"
                       onChange={formik.handleChange}
                     >
+                      <option>- Chọn danh mục -</option>
                       {categorytList.map((item) => {
                         return (
                           <option key={item._id} value={item._id}>
@@ -147,7 +158,9 @@ export default function ProductAdd() {
                   type="file"
                   id="image"
                   name="image"
-                  onChange={formik.handleChange}
+                  onChange={(event) => {
+                    formik.setFieldValue("image", event.currentTarget.files[0]);
+                  }}
                 />
                 <div className="bg-secondary-subtle mb-3 p-2 text-center">
                   <img src="assets/img/products/iphone.webp" className="w-50" />
