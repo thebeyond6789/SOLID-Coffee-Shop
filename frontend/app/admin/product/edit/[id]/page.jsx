@@ -1,13 +1,13 @@
 "use client";
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import useSWR from "swr";
 
 export default function ProductEdit({ params }) {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const {
-    data: categorytList,
+    data: categoryList,
     error: errorCategory,
     isLoading: isLoadingCategory,
   } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/categories`, fetcher);
@@ -20,39 +20,65 @@ export default function ProductEdit({ params }) {
     `${process.env.NEXT_PUBLIC_API_URL}/products/id/${params.id}`,
     fetcher
   );
+
   const router = useRouter();
-  const [formValue, setFormValue] = useState();
+
   const formik = useFormik({
     initialValues: {
       name: "",
       description: "",
       categoryId: "",
       price: 0,
+      rating: 0,
       image: null,
     },
-    onSubmit: (value) => {
-      setFormValue(value);
+    onSubmit: async (values) => {
       const formData = new FormData();
-      formData.append("name", value.name);
-      formData.append("description", value.description);
-      formData.append("categoryId", value.categoryId);
-      formData.append("price", value.price);
-      formData.append("image", value.image);
+      formData.append("name", values.name);
+      formData.append("description", values.description);
+      formData.append("categoryId", values.categoryId);
+      formData.append("price", values.price);
+      formData.append("rating", values.rating);
+      if (values.image) {
+        formData.append("image", values.image);
+      }
+
       try {
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`, {
-          method: "POST",
-          body: formData,
-        }).then((res) => {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/products/id/${params.id}`,
+          {
+            method: "PUT",
+            body: formData,
+          }
+        );
+
+        if (response.ok) {
           router.push("/admin/product");
-        });
+        } else {
+          console.error("Failed to update product");
+        }
       } catch (error) {
-        console.log(error);
+        console.error("Error updating product:", error);
       }
     },
   });
 
-  if (errorCategory) return <strong>Có lỗi xảy ra ...</strong>;
-  if (isLoadingCategory) return <strong>Đang tải dữ liệu ...</strong>;
+  useEffect(() => {
+    if (product) {
+      formik.setValues({
+        name: product.name,
+        description: product.description,
+        categoryId: product.categoryId,
+        price: product.price,
+        rating: product.rating || 0,
+        image: null,
+      });
+    }
+  }, [product]);
+
+  if (errorCategory || errorProduct) return <strong>Có lỗi xảy ra ...</strong>;
+  if (isLoadingCategory || isLoadingProduct)
+    return <strong>Đang tải dữ liệu ...</strong>;
 
   return (
     <>
@@ -66,17 +92,15 @@ export default function ProductEdit({ params }) {
       </div>
       <form
         className="row"
-        action=""
-        method="POST"
-        enctype="multipart/form-data"
         onSubmit={formik.handleSubmit}
+        encType="multipart/form-data"
       >
         <div className="col-md-8 mb-4">
           <div className="card rounded-0 border-0 shadow-sm mb-4">
             <div className="card-body">
               <h6 className="pb-3 border-bottom">Basic Info</h6>
               <div className="mb-3">
-                <label for="name" className="form-label">
+                <label htmlFor="name" className="form-label">
                   Name *
                 </label>
                 <input
@@ -85,11 +109,12 @@ export default function ProductEdit({ params }) {
                   id="name"
                   required
                   name="name"
+                  value={formik.values.name}
                   onChange={formik.handleChange}
                 />
               </div>
               <div className="mb-3">
-                <label for="description" className="form-label">
+                <label htmlFor="description" className="form-label">
                   Description
                 </label>
                 <textarea
@@ -97,12 +122,13 @@ export default function ProductEdit({ params }) {
                   id="description"
                   rows="6"
                   name="description"
+                  value={formik.values.description}
                   onChange={formik.handleChange}
                 ></textarea>
               </div>
               <div className="row">
                 <div className="col mb-3">
-                  <label for="category" className="form-label">
+                  <label htmlFor="category" className="form-label">
                     Category *
                   </label>
                   <div className="input-group">
@@ -111,16 +137,15 @@ export default function ProductEdit({ params }) {
                       id="categoryId"
                       required
                       name="categoryId"
+                      value={formik.values.categoryId}
                       onChange={formik.handleChange}
                     >
                       <option>- Chọn danh mục -</option>
-                      {categorytList.map((item) => {
-                        return (
-                          <option key={item._id} value={item._id}>
-                            {item.name}
-                          </option>
-                        );
-                      })}
+                      {categoryList.map((item) => (
+                        <option key={item._id} value={item._id}>
+                          {item.name}
+                        </option>
+                      ))}
                     </select>
                     <button
                       type="button"
@@ -138,7 +163,7 @@ export default function ProductEdit({ params }) {
               <h6 className="pb-3 border-bottom">Price</h6>
               <div className="row">
                 <div className="col mb-3">
-                  <label for="price" className="form-label">
+                  <label htmlFor="price" className="form-label">
                     Price *
                   </label>
                   <input
@@ -148,6 +173,7 @@ export default function ProductEdit({ params }) {
                     min="0"
                     required
                     name="price"
+                    value={formik.values.price}
                     onChange={formik.handleChange}
                   />
                 </div>
@@ -160,8 +186,8 @@ export default function ProductEdit({ params }) {
             <div className="card-body">
               <h6 className="pb-3 border-bottom">Image</h6>
               <div className="mb-3">
-                <label for="image" className="form-label">
-                  Product Image *
+                <label htmlFor="image" className="form-label">
+                  Product Image
                 </label>
                 <input
                   className="form-control rounded-0"
@@ -174,8 +200,8 @@ export default function ProductEdit({ params }) {
                 />
               </div>
               <div className="mb-3">
-                <label for="images" className="form-label">
-                  More Product Image
+                <label htmlFor="images" className="form-label">
+                  More Product Images
                 </label>
                 <input
                   className="form-control rounded-0"
@@ -190,7 +216,7 @@ export default function ProductEdit({ params }) {
             type="submit"
             className="btn btn-primary btn-lg rounded-0 mt-4 w-100"
           >
-            Create Product
+            Update Product
           </button>
         </div>
       </form>
