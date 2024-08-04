@@ -104,6 +104,7 @@ router.get("/topRating", async (req, res, next) => {
   }
 });
 
+// Thêm sản phẩm
 router.post("/", upload.single("image"), async (req, res, next) => {
   const db = await connectDb();
   const productCollection = db.collection("products");
@@ -121,6 +122,50 @@ router.post("/", upload.single("image"), async (req, res, next) => {
     res.status(200).json({ message: "Thêm sản phẩm thành công!" });
   } else {
     res.status(404).json({ message: "Không tìm thấy" });
+  }
+});
+
+// Cập nhật sản phẩm
+router.put("/id/:id", upload.single("image"), async (req, res, next) => {
+  const db = await connectDb();
+  const productCollection = db.collection("products");
+
+  const updatedProduct = {
+    name: req.body.name,
+    description: req.body.description,
+    categoryId: new ObjectId(req.body.categoryId),
+    price: parseFloat(req.body.price),
+    rating: parseFloat(req.body.rating) || 0,
+  };
+
+  if (req.file) {
+    updatedProduct.image = req.file.originalname;
+  }
+
+  const result = await productCollection.updateOne(
+    { _id: new ObjectId(req.params.id) },
+    { $set: updatedProduct }
+  );
+
+  if (result.modifiedCount === 1) {
+    res.status(200).json({ message: "Cập nhật sản phẩm thành công" });
+  } else {
+    res.status(404).json({ message: "Không tìm thấy sản phẩm để cập nhật" });
+  }
+});
+
+// Xóa sản phẩm theo id
+router.delete("/id/:id", async (req, res, next) => {
+  const db = await connectDb();
+  const productCollection = db.collection("products");
+  const result = await productCollection.deleteOne({
+    _id: new ObjectId(req.params.id),
+  });
+
+  if (result.deletedCount === 1) {
+    res.status(200).json({ message: "Xóa sản phẩm thành công" });
+  } else {
+    res.status(404).json({ message: "Không tìm thấy sản phẩm để xóa" });
   }
 });
 

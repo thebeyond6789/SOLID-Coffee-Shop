@@ -5,52 +5,6 @@ export default function Dashboard() {
         <h3 className="mb-4">Dashboard</h3>
       </div>
       <div className="row">
-        <div className="col-md-3 mb-4">
-          <div className="card border-0 rounded-0 bg-primary-subtle text-primary">
-            <div className="card-body text-end">
-              <div className="display-6 d-flex justify-content-between">
-                <i className="fal fa-file-invoice-dollar"></i>
-                122
-              </div>
-              ORDERS
-            </div>
-          </div>
-        </div>
-        <div className="col-md-3 mb-4">
-          <div className="card border-0 rounded-0 bg-warning-subtle text-warning">
-            <div className="card-body text-end">
-              <div className="display-6 d-flex justify-content-between">
-                <i className="fal fa-boxes"></i>
-                20
-              </div>
-              PRODUCTS
-            </div>
-          </div>
-        </div>
-        <div className="col-md-3 mb-4">
-          <div className="card border-0 rounded-0 bg-danger-subtle text-danger">
-            <div className="card-body text-end">
-              <div className="display-6 d-flex justify-content-between">
-                <i className="fal fa-users"></i>
-                10,003
-              </div>
-              CUSTOMERS
-            </div>
-          </div>
-        </div>
-        <div className="col-md-3 mb-4">
-          <div className="card border-0 rounded-0 bg-success-subtle text-success">
-            <div className="card-body text-end">
-              <div className="display-6 d-flex justify-content-between">
-                <i className="fal fa-chart-line"></i>
-                1.5 B
-              </div>
-              INCOMES
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="row">
         <div className="col-md-4 mb-3">
           <div className="card rounded-0 border-0 shadow-sm">
             <div className="card-body">

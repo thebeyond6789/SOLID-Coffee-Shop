@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import useSWR from "swr";
 
-export default function ProductAdd() {
+export default function ProductEdit({ params }) {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const {
     data: categorytList,
@@ -12,6 +12,14 @@ export default function ProductAdd() {
     isLoading: isLoadingCategory,
   } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/categories`, fetcher);
 
+  const {
+    data: product,
+    error: errorProduct,
+    isLoading: isLoadingProduct,
+  } = useSWR(
+    `${process.env.NEXT_PUBLIC_API_URL}/products/id/${params.id}`,
+    fetcher
+  );
   const router = useRouter();
   const [formValue, setFormValue] = useState();
   const formik = useFormik({
@@ -49,7 +57,7 @@ export default function ProductAdd() {
   return (
     <>
       <div className="d-flex justify-content-between">
-        <h3 className="mb-4">Add Product</h3>
+        <h3 className="mb-4">Edit Product</h3>
         <div>
           <a href="#" className="btn btn-outline-secondary rounded-0">
             <i className="far fa-long-arrow-left"></i> Back

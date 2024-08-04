@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <body style={{ background: "#eff8ff" }}>
         <div className="d-flex min-vh-100">
           <div
-            className="d-flex flex-column flex-shrink-0 p-3 text-bg-primary"
+            className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
             style={{ maxWidth: 280 + "px" }}
             data-bs-theme="dark"
           >
@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
           </div>
           <div className="w-100">
             <nav
-              className="navbar navbar-expand-md text-bg-primary"
+              className="navbar navbar-expand-md text-bg-dark"
               data-bs-theme="dark"
             >
               <div className="container-fluid ps-0">
