@@ -14,8 +14,8 @@ export default function Leftbar() {
               pathname == "/admin" ? "active" : "text-white"
             }`}
           >
-            <i className="far fa-tachometer-alt-fastest fa-fw"></i>
-            <span className="d-none d-sm-inline-block">Dashboard</span>
+            <i class="fa-solid fa-gauge-high"></i>
+            <span className="d-none d-sm-inline-block ms-2">Dashboard</span>
           </Link>
         </li>
         <li>
@@ -25,8 +25,8 @@ export default function Leftbar() {
               pathname == "/admin/order" ? "active" : "text-white"
             }`}
           >
-            <i className="far fa-shopping-cart fa-fw"></i>
-            <span className="d-none d-sm-inline-block">Orders</span>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span className="d-none d-sm-inline-block ms-2">Orders</span>
           </Link>
         </li>
         <li>
@@ -36,8 +36,8 @@ export default function Leftbar() {
               pathname == "/admin/product" ? "active" : "text-white"
             }`}
           >
-            <i className="far fa-boxes fa-fw"></i>
-            <span className="d-none d-sm-inline-block">Products</span>
+            <i class="fa-solid fa-layer-group"></i>
+            <span className="d-none d-sm-inline-block ms-2">Products</span>
           </Link>
         </li>
         <li>
@@ -47,19 +47,8 @@ export default function Leftbar() {
               pathname == "/admin/customer" ? "active" : "text-white"
             }`}
           >
-            <i className="far fa-users fa-fw"></i>
-            <span className="d-none d-sm-inline-block">Customers</span>
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/admin/rating"
-            className={`nav-link rounded-0 ${
-              pathname == "/admin/rating" ? "active" : "text-white"
-            }`}
-          >
-            <i className="far fa-star-half-alt"></i>
-            <span className="d-none d-sm-inline-block">Ratings</span>
+            <i class="fa-solid fa-users"></i>
+            <span className="d-none d-sm-inline-block ms-2">Customers</span>
           </Link>
         </li>
       </ul>

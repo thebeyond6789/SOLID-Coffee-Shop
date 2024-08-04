@@ -29,13 +29,13 @@ export default function Dashboard() {
                   className="py-2 mb-0 small lh-sm border-bottom w-100 text-decoration-none text-body-secondary"
                 >
                   <strong className="d-flex justify-content-between">
-                    Đơn #122
+                    Đơn #123
                     <div>
                       <span className="badge text-bg-warning">
-                        <i className="far fa-box"></i> 20
+                        <i class="fa-solid fa-glass-water"></i> 3
                       </span>
                       <span className="badge bg-success-subtle text-success">
-                        <i className="far fa-money-bill-wave"></i> 100,000,000
+                        <i class="fa-solid fa-dong-sign"></i> 230,000
                       </span>
                     </div>
                   </strong>
@@ -54,14 +54,14 @@ export default function Dashboard() {
                     Đơn #122
                     <div>
                       <span className="badge text-bg-warning">
-                        <i className="far fa-box"></i> 5
+                        <i class="fa-solid fa-glass-water"></i> 5
                       </span>
                       <span className="badge bg-success-subtle text-success">
-                        <i className="far fa-money-bill-wave"></i> 10,000,000
+                        <i class="fa-solid fa-dong-sign"></i> 480,000
                       </span>
                     </div>
                   </strong>
-                  Đặt bởi <i>Khách vãng lai</i> lúc 18:00 04/06/2024
+                  Đặt bởi <i>Khách vãng lai</i> lúc 18:20 04/06/2024
                 </a>
               </div>
               <div className="d-flex text-body-secondary pt-3">
@@ -76,14 +76,14 @@ export default function Dashboard() {
                     Đơn #121
                     <div>
                       <span className="badge text-bg-warning">
-                        <i className="far fa-box"></i> 5
+                        <i class="fa-solid fa-glass-water"></i> 2
                       </span>
                       <span className="badge bg-success-subtle text-success">
-                        <i className="far fa-money-bill-wave"></i> 10,000,000
+                        <i class="fa-solid fa-dong-sign"></i> 110,000
                       </span>
                     </div>
                   </strong>
-                  Đặt bởi <i>Khách vãng lai</i> lúc 18:00 04/06/2024
+                  Đặt bởi <i>Khách vãng lai</i> lúc 19:26 04/06/2024
                 </a>
               </div>
             </div>
@@ -104,13 +104,13 @@ export default function Dashboard() {
                 </small>
               </div>
               <div className="d-flex text-body-secondary pt-3">
-                <i className="far fa-comment-alt-smile"></i>
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <a
                   href="#"
                   className="py-2 mb-0 small lh-sm border-bottom w-100 text-decoration-none text-body-secondary"
                 >
                   <strong className="d-flex justify-content-between">
-                    iPhone 15 Pro Max 256GB Gold Rose
+                    Đá xay Matcha
                     <div className="text-warning">
                       <i className="fas fa-star"></i>
                       <i className="fas fa-star"></i>
@@ -119,52 +119,38 @@ export default function Dashboard() {
                       <i className="fas fa-star"></i>
                     </div>
                   </strong>
-                  Sản phẩm xịn, giá tốt!
+                  Uống ngon nhưng đắng quá, vẫn oke nhé shop!!
                 </a>
               </div>
               <div className="d-flex text-body-secondary pt-3">
-                <i className="far fa-comment-alt-smile"></i>
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <a
                   href="#"
                   className="py-2 mb-0 small lh-sm border-bottom w-100 text-decoration-none text-body-secondary"
                 >
                   <strong className="d-flex justify-content-between">
-                    Samsung Galaxy S23 Ultra
+                    Trà Sữa Ô Long
                     <div className="text-warning">
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
                       <i className="fas fa-star"></i>
                       <i className="fas fa-star"></i>
                       <i className="fas fa-star"></i>
                     </div>
                   </strong>
-                  Giá mắc, chất lượng tầm trung!
+                  Signature của SOLID nè, quá ngonnn3333
                 </a>
               </div>
               <div className="d-flex text-body-secondary pt-3">
-                <i className="far fa-comment-alt-smile"></i>
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <a
                   href="#"
                   className="py-2 mb-0 small lh-sm border-bottom w-100 text-decoration-none text-body-secondary"
                 >
                   <strong className="d-flex justify-content-between">
-                    Samsung Galaxy S23 Ultra
+                    Trà Sữa Socola
                     <div className="text-warning">
                       <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                    </div>
-                  </strong>
-                  Giá mắc, chất lượng tầm trung!
-                </a>
-              </div>
-              <div className="d-flex text-body-secondary pt-3">
-                <i className="far fa-comment-alt-smile"></i>
-                <a
-                  href="#"
-                  className="py-2 mb-0 small lh-sm border-bottom w-100 text-decoration-none text-body-secondary"
-                >
-                  <strong className="d-flex justify-content-between">
-                    Samsung Galaxy S23 Ultra
-                    <div className="text-warning">
                       <i className="fas fa-star"></i>
                       <i className="fas fa-star"></i>
                       <i className="fas fa-star"></i>
@@ -174,15 +160,31 @@ export default function Dashboard() {
                 </a>
               </div>
               <div className="d-flex text-body-secondary pt-3">
-                <i className="far fa-comment-alt-smile"></i>
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <a
                   href="#"
                   className="py-2 mb-0 small lh-sm border-bottom w-100 text-decoration-none text-body-secondary"
                 >
                   <strong className="d-flex justify-content-between">
-                    Samsung Galaxy S23 Ultra
+                    Sữa Chua Phúc Bồn Tử Đác Cam
                     <div className="text-warning">
                       <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                    </div>
+                  </strong>
+                  Không ngon, chất lượng tầm trung, chỉ được quán decor đẹp!
+                </a>
+              </div>
+              <div className="d-flex text-body-secondary pt-3">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <a
+                  href="#"
+                  className="py-2 mb-0 small lh-sm border-bottom w-100 text-decoration-none text-body-secondary"
+                >
+                  <strong className="d-flex justify-content-between">
+                    Sữa Chua Phúc Bồn Tử Đác Cam
+                    <div className="text-warning">
                       <i className="fas fa-star"></i>
                       <i className="fas fa-star"></i>
                     </div>

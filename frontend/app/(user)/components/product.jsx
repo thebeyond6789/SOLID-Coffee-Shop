@@ -37,19 +37,19 @@ import AddCartButton from "./addCartButton";
 //       </div>
 //     </>
 //   );
-//   // function MyButton() {
-//   //   const [count, setCount] = useState(0);
+// function MyButton() {
+//   const [count, setCount] = useState(0);
 
-//   //   function handleClick() {
-//   //     setCount(count + 1);
-//   //   }
+//   function handleClick() {
+//     setCount(count + 1);
+//   }
 
-//   //   return (
-//   //     <button className="btn btn-warning w-100" onClick={handleClick}>
-//   //       Clicked {count} times
-//   //     </button>
-//   //   );
-//   // }
+//   return (
+//     <button className="btn btn-warning w-100" onClick={handleClick}>
+//       Clicked {count} times
+//     </button>
+//   );
+// }
 // }
 
 export default function Product(props) {

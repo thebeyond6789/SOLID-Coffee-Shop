@@ -21,7 +21,10 @@ export default function ProductList(props) {
   let dataDefault = useRef([...props.data]);
 
   const { min, max } = useSelector((state) => state.filter);
-  data = data.filter((item) => min <= item.price && item.price <= max);
+  // data = data.filter((item) => min <= item.s && item.price <= max);
+  if (min !== undefined && max !== undefined) {
+    data = data.filter((item) => min <= item.price && item.price <= max);
+  }
 
   const sortType = useSelector((state) => state.sort);
   if (sortType == "ASC") {

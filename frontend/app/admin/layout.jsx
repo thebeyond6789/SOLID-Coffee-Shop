@@ -22,8 +22,9 @@ export default function RootLayout({ children }) {
               href="/"
               className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none justify-content-center"
             >
-              <img src="/img/logo.svg" />
-              <span className="fs-4 d-none d-sm-inline-block">
+              {/* <img src="/img/logo.svg" /> */}
+              <i className="fa-solid fa-mug-saucer"></i>
+              <span className="fs-5 ms-2 d-none d-sm-inline-block navbar-brand">
                 S.O.L.I.D ADMIN
               </span>
             </a>
@@ -48,7 +49,7 @@ export default function RootLayout({ children }) {
                         type="submit"
                         className="btn btn-primary rounded-0 border-white"
                       >
-                        <i className="far fa-search"></i>
+                        <i class="fa-solid fa-magnifying-glass"></i>
                       </button>
                       <input
                         className="form-control me-2 rounded-0 border-white"
@@ -154,6 +155,10 @@ export default function RootLayout({ children }) {
         </div>
         <script src="/js/google.chart.js"></script>
         <script src="/js/bootstrap.bundle.min.js"></script>
+        <script
+          src="https://kit.fontawesome.com/3763200a5b.js"
+          crossOrigin="anonymous"
+        ></script>
       </body>
     </html>
   );

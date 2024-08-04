@@ -18,6 +18,10 @@ export default function Home() {
     error: errorCategory,
     isLoading: isLoadingCategory,
   } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/categories`, fetcher);
+
+  console.log("Product List:", productList); // Kiểm tra dữ liệu product list
+  console.log("Category List:", categoryList); // Kiểm tra dữ liệu category list
+
   if (errorProduct || errorCategory) return <strong>Có lỗi xảy ra ...</strong>;
   if (isLoadingProduct || isLoadingCategory)
     return <strong>Đang tải dữ liệu ...</strong>;
