@@ -11,6 +11,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="vi">
+      <head>
+        <link rel="icon" href="/icon.png" type="image/png" />
+      </head>
       <body style={{ background: "#eff8ff" }}>
         <div className="d-flex min-vh-100">
           <div

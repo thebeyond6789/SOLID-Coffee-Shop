@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const connectDb = require("../models/db");
 const { ObjectId } = require("mongodb");
 
-// Registration route
+// Đăng ký route
 router.post("/register", async function (req, res) {
   const { username, email, password } = req.body;
   const db = await connectDb();
@@ -35,7 +35,7 @@ router.post("/register", async function (req, res) {
   });
 });
 
-// Login route
+// Đăng nhập route
 router.post("/login", async function (req, res) {
   const { email, password } = req.body;
   const db = await connectDb();
@@ -60,7 +60,7 @@ router.post("/login", async function (req, res) {
   res.json({ token, user: { username: user.username } });
 });
 
-// Get all users
+// Lấy tất cả người dùng
 router.get("/", async function (req, res) {
   const db = await connectDb();
   const usersCollection = db.collection("users");
@@ -77,7 +77,7 @@ router.get("/", async function (req, res) {
   }
 });
 
-// Get user by ID
+// Lấy người dùng theo ID
 router.get("/:id", async function (req, res) {
   const db = await connectDb();
   const usersCollection = db.collection("users");
@@ -100,6 +100,7 @@ router.get("/:id", async function (req, res) {
   }
 });
 
+// Cập nhật người dùng theo ID
 router.put("/:id", async function (req, res) {
   const db = await connectDb();
   const usersCollection = db.collection("users");
@@ -142,7 +143,7 @@ router.put("/:id", async function (req, res) {
   }
 });
 
-// Delete user by ID
+// Xóa người dùng theo ID
 router.delete("/:id", async function (req, res) {
   const db = await connectDb();
   const usersCollection = db.collection("users");

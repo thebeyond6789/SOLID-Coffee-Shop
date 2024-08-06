@@ -5,7 +5,7 @@ var router = express.Router();
 const connectDb = require("../models/db");
 const { ObjectId } = require("mongodb");
 
-// Lấy tất cả đơn hàng dạng json
+// Lấy tất cả đơn hàng
 router.get("/", async (req, res, next) => {
   const db = await connectDb();
   const productCollection = db.collection("orders");
@@ -17,7 +17,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// Lấy đơn hàng theo id
+// Lấy đơn hàng theo ID
 router.get("/id/:id", async (req, res, next) => {
   const db = await connectDb();
   const productCollection = db.collection("orders");

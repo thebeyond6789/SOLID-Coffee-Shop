@@ -5,13 +5,17 @@ import { useEffect, useState } from "react";
 import useSWR from "swr";
 
 export default function ProductEdit({ params }) {
+  // Hàm fetcher để lấy dữ liệu từ API
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+  // Sử dụng SWR để lấy danh sách danh mục sản phẩm
   const {
     data: categoryList,
     error: errorCategory,
     isLoading: isLoadingCategory,
   } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/categories`, fetcher);
 
+  // Sử dụng SWR để lấy thông tin chi tiết của sản phẩm
   const {
     data: product,
     error: errorProduct,
@@ -23,6 +27,7 @@ export default function ProductEdit({ params }) {
 
   const router = useRouter();
 
+  // Khởi tạo formik để quản lý form
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -32,6 +37,7 @@ export default function ProductEdit({ params }) {
       rating: 0,
       image: null,
     },
+    // Xử lý khi submit form
     onSubmit: async (values) => {
       const formData = new FormData();
       formData.append("name", values.name);
@@ -52,6 +58,7 @@ export default function ProductEdit({ params }) {
           }
         );
 
+        // Nếu cập nhật thành công, chuyển hướng về trang quản lý sản phẩm
         if (response.ok) {
           router.push("/admin/product");
         } else {
@@ -63,6 +70,7 @@ export default function ProductEdit({ params }) {
     },
   });
 
+  // Sử dụng useEffect để cập nhật giá trị form khi có dữ liệu sản phẩm
   useEffect(() => {
     if (product) {
       formik.setValues({
@@ -76,6 +84,7 @@ export default function ProductEdit({ params }) {
     }
   }, [product]);
 
+  // Hiển thị thông báo lỗi nếu có lỗi xảy ra khi lấy dữ liệu
   if (errorCategory || errorProduct) return <strong>Có lỗi xảy ra ...</strong>;
   if (isLoadingCategory || isLoadingProduct)
     return <strong>Đang tải dữ liệu ...</strong>;

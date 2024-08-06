@@ -29,7 +29,7 @@ let upload = multer({
   limits: { fileSize: 50 * 1024 * 1024 }, // byte
 });
 
-//Lấy tất cả sản phẩm dạng json
+// Lấy tất cả sản phẩm
 router.get("/", async (req, res, next) => {
   const db = await connectDb();
   const productCollection = db.collection("products");
@@ -53,7 +53,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-//Lấy sản phẩm theo id
+// Lấy sản phẩm theo ID
 router.get("/id/:id", async (req, res, next) => {
   const db = await connectDb();
   const productCollection = db.collection("products");
@@ -154,7 +154,7 @@ router.put("/id/:id", upload.single("image"), async (req, res, next) => {
   }
 });
 
-// Xóa sản phẩm theo id
+// Xóa sản phẩm theo ID
 router.delete("/id/:id", async (req, res, next) => {
   const db = await connectDb();
   const productCollection = db.collection("products");

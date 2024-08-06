@@ -2,6 +2,10 @@ import "@/public/css/bootstrap.min.css";
 import Navbar from "./components/navbar";
 // import Providers from "@/redux/providers";
 import Providers from "@/redux/providers";
+import { Inter } from "next/font/google";
+// import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "SOLID Coffee Shop",
@@ -11,7 +15,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <head>
+        <link rel="icon" href="/icon.png" type="image/png" />
+      </head>
+
+      <body className={inter.className}>
         <Providers>
           <Navbar />
           {children}
