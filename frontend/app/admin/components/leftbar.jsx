@@ -42,9 +42,9 @@ export default function Leftbar() {
         </li>
         <li>
           <Link
-            href="/admin/customer"
+            href="/admin/user"
             className={`nav-link rounded-0 ${
-              pathname == "/admin/customer" ? "active" : "text-white"
+              pathname == "/admin/user" ? "active" : "text-white"
             }`}
           >
             <i class="fa-solid fa-users"></i>

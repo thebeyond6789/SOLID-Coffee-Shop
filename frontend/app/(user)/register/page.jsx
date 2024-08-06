@@ -10,6 +10,7 @@ export default function Register() {
   const dispatch = useDispatch();
   const router = useRouter();
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
@@ -60,12 +61,25 @@ export default function Register() {
               <label htmlFor="password" className="form-label">
                 Mật khẩu
               </label>
-              <Field
-                type="password"
-                name="password"
-                className="form-control"
-                id="password"
-              />
+              <div className="input-group">
+                <Field
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  className="form-control"
+                  id="password"
+                />
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  <i
+                    className={`fa-solid ${
+                      showPassword ? "fa-eye-slash" : "fa-eye"
+                    }`}
+                  ></i>
+                </button>
+              </div>
             </div>
             {error && <div className="alert alert-danger">{error}</div>}
             <button

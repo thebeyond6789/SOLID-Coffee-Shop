@@ -60,4 +60,108 @@ router.post("/login", async function (req, res) {
   res.json({ token, user: { username: user.username } });
 });
 
+// Get all users
+router.get("/", async function (req, res) {
+  const db = await connectDb();
+  const usersCollection = db.collection("users");
+
+  try {
+    const users = await usersCollection
+      .find({}, { projection: { password: 0 } })
+      .toArray();
+    res.status(200).json(users);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error fetching users", error: error.message });
+  }
+});
+
+// Get user by ID
+router.get("/:id", async function (req, res) {
+  const db = await connectDb();
+  const usersCollection = db.collection("users");
+
+  try {
+    const user = await usersCollection.findOne(
+      { _id: new ObjectId(req.params.id) },
+      { projection: { password: 0 } }
+    );
+
+    if (user) {
+      res.status(200).json(user);
+    } else {
+      res.status(404).json({ message: "User not found" });
+    }
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error fetching user", error: error.message });
+  }
+});
+
+router.put("/:id", async function (req, res) {
+  const db = await connectDb();
+  const usersCollection = db.collection("users");
+  const userId = req.params.id;
+  const { currentPassword, newPassword, ...updates } = req.body;
+
+  try {
+    const user = await usersCollection.findOne({ _id: new ObjectId(userId) });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    if (currentPassword && newPassword) {
+      const isPasswordCorrect = await bcrypt.compare(
+        currentPassword,
+        user.password
+      );
+      if (!isPasswordCorrect) {
+        return res
+          .status(400)
+          .json({ message: "Current password is incorrect" });
+      }
+      updates.password = await bcrypt.hash(newPassword, 10);
+    }
+
+    const result = await usersCollection.updateOne(
+      { _id: new ObjectId(userId) },
+      { $set: updates }
+    );
+
+    if (result.modifiedCount === 0) {
+      return res.status(200).json({ message: "No changes were made" });
+    }
+
+    res.status(200).json({ message: "User updated successfully" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error updating user", error: error.message });
+  }
+});
+
+// Delete user by ID
+router.delete("/:id", async function (req, res) {
+  const db = await connectDb();
+  const usersCollection = db.collection("users");
+
+  try {
+    const result = await usersCollection.deleteOne({
+      _id: new ObjectId(req.params.id),
+    });
+
+    if (result.deletedCount === 1) {
+      res.status(200).json({ message: "Bạn đã xóa tài khoản thành công!!" });
+    } else {
+      res.status(404).json({ message: "User not found" });
+    }
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error deleting user", error: error.message });
+  }
+});
+
 module.exports = router;
