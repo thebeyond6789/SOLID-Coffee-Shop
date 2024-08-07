@@ -101,13 +101,6 @@ export default function Product() {
                       </div>
                     </td>
                     <td>
-                      <a
-                        href="#"
-                        target="_blank"
-                        className="btn btn-primary btn-sm"
-                      >
-                        <i className="fas fa-eye fa-fw"></i>
-                      </a>
                       <Link
                         href={`/admin/product/edit/${item._id}`}
                         className="btn btn-outline-warning btn-sm"

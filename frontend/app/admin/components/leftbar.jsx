@@ -48,7 +48,7 @@ export default function Leftbar() {
             }`}
           >
             <i class="fa-solid fa-users"></i>
-            <span className="d-none d-sm-inline-block ms-2">Customers</span>
+            <span className="d-none d-sm-inline-block ms-2">Users</span>
           </Link>
         </li>
       </ul>

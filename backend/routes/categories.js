@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
-//Import model
+// Import model
 const connectDb = require("../models/db");
 const { ObjectId } = require("mongodb");
 
